@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-productSchma = new mongoose.Schema({
+userSchma = new mongoose.Schema({
     name:{
         type:String,
         require:true
@@ -26,5 +26,5 @@ productSchma = new mongoose.Schema({
     picture:String
 })
 
-const product= mongoose.model("product",productSchma)
-module.exports = product
+const user = mongoose.model("user",userSchma)
+module.exports = user

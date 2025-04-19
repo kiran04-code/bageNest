@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-productSchma = new mongoose.Schema({
+ownerSchma = new mongoose.Schema({
     name:{
         type:String,
         require:true
@@ -13,18 +13,14 @@ productSchma = new mongoose.Schema({
         type:String,
         require:true
     },
-    card:{
-        type:Array,
-        default:[]
-    },
     isAdmin: Boolean,
-    orders:{
+    products:{
         type:Array,
         default:[]
     },
-    contact:Number,
-    picture:String
+    picture:String,
+    gstin:String
 })
 
-const product= mongoose.model("product",productSchma)
-module.exports = product
+const owner = mongoose.model("owener",ownerSchma)
+module.exports = owner
