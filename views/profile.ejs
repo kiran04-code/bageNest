@@ -1,0 +1,45 @@
+<%- include('./partials/header') %>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-tr from-blue-100 via-purple-100 to-pink-100 py-12 px-4 font-[Poppins]">
+    <div class="max-w-md w-full bg-white p-6 rounded-2xl shadow-xl min-h-[24rem] flex flex-col justify-between">
+        
+        <!-- Top Bar with Logout -->
+        <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xl font-bold text-gray-800">Your Profile</h2>
+            <a href="/logout" class="bg-red-500 text-white px-4 py-1.5 rounded-md shadow text-sm">
+                <i class="fas fa-sign-out-alt mr-1"></i> Logout
+            </a>
+        </div>
+
+        <!-- Profile Picture and Info -->
+        <div class="flex flex-col items-center mb-4">
+            <img class="w-24 h-24 rounded-full object-cover border-4 border-blue-500 shadow-md" 
+                 src="<%= user.picture || 'https://plus.unsplash.com/premium_photo-1734543932100-96cf06f153c3?w=600&auto=format&fit=crop&q=60' %>" 
+                 alt="Profile Picture">
+            <h3 class="text-lg font-semibold text-gray-800 mt-2"><%= user.name %></h3>
+            <p class="text-gray-600 text-xs flex items-center gap-1"><i class="fas fa-envelope text-blue-500"></i> <%= user.email %></p>
+            <p class="text-gray-600 text-xs flex items-center gap-1"><i class="fas fa-phone text-blue-500"></i> <%= user.contact || 'Not Provided' %></p>
+        </div>
+
+        <!-- Compact Info Section -->
+        <div class="space-y-2 text-sm text-gray-700">
+            <div class="flex justify-between border p-2 rounded bg-blue-50">
+                <span class="font-medium">Name</span>
+                <span><%= user.name %></span>
+            </div>
+            <div class="flex justify-between border p-2 rounded bg-purple-50">
+                <span class="font-medium">Email</span>
+                <span><%= user.email %></span>
+            </div>
+            <div class="flex justify-between border p-2 rounded bg-pink-50">
+                <span class="font-medium">Contact</span>
+                <span><%= user.contact || 'N/A' %></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('./partials/footer') %>

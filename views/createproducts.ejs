@@ -1,0 +1,67 @@
+<%- include('./partials/header') %>
+
+<% if (locals.error) { %>
+    <div class="fixed top-5 left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-bounce">
+        <%= locals.error %>
+    </div>
+<% } %>
+
+<div class="min-h-screen flex flex-col bg-gradient-to-br from-pink-50 to-white font-[Poppins]">
+    <div class="container mx-auto px-10 py-20 flex flex-grow">
+        <!-- Sidebar -->
+        <aside class="w-[25%] h-full pr-4 border-r border-gray-300">
+            <nav class="flex flex-col space-y-4 text-lg font-semibold text-indigo-600">
+                <a class="hover:text-indigo-800 transition-all" href="/admin">All Products</a>
+                <a class="hover:text-indigo-800 transition-all" href="/creteproduct">Create New Product</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="w-3/4 bg-white p-10 rounded-xl shadow-xl ml-8 animate-fade-in">
+            <h2 class="text-3xl font-bold mb-8 text-indigo-600">🎨 Create a Beautiful Product</h2>
+            
+            <form autocomplete="off" action="/createproduct" method="post" enctype="multipart/form-data" class="space-y-10">
+                
+                <!-- Product Details -->
+                <section>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">Product Info</h3>
+                    
+                    <div class="mb-5">
+                        <label class="block mb-2 font-medium text-gray-600">Product Image</label>
+                        <input name="image" type="file" class="block w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:font-semibold file:bg-indigo-100 file:text-indigo-700 hover:file:bg-indigo-200">
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <input name="name" type="text" placeholder="Product Name"
+                            class="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                        <input name="price" type="text" placeholder="Product Price"
+                            class="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                        <input name="discount" type="text" placeholder="Discount Price"
+                            class="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                    </div>
+                </section>
+
+                <!-- Panel Colors -->
+                <section>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">Panel Customization</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <input name="bgcolor" type="text" placeholder="Background Color"
+                            class="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                        <input name="panelcolor" type="text" placeholder="Panel Color"
+                            class="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                        <input name="textcolor" type="text" placeholder="Text Color"
+                            class="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                    </div>
+                </section>
+
+                <!-- Submit Button -->
+                <div class="flex justify-end">
+                    <input class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold shadow-md transition-all cursor-pointer" type="submit" value="🚀 Create Product">
+                </div>
+            </form>
+        </main>
+    </div>
+</div>
+
+<%- include('./partials/footer') %>

@@ -1,18 +1,17 @@
 const mongoose = require("mongoose")
 
 productSchma = new mongoose.Schema({
-  image:String,
+  image:Buffer,
   name:String,
-  name:string,
   price:Number,
   discount:{
     type:Number,
     default:0
   },
-  bgcolor:string,
-  panelcolor:string,
-  textcolor:string
+  bgcolor:String,
+  panelcolor:String,
+  textcolor:String
 })
 
-const product = mongoose.model("product",product)
+const product = mongoose.model("products",productSchma)
 module.exports = product

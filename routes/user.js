@@ -1,12 +1,24 @@
 const express = require("express")
 const routes = express.Router()
-const { createAcount} = require("../controller/user")
+const { createAcount ,checkUser} = require("../controller/user")
 
-routes.get("/signup",(req,res)=>{
-    res.render("signup")
+routes.get("/",async(req,res)=>{
+    res.render("index", { user: req.user });
+
 })
-routes.get("/signin",(req,res)=>{
-    res.render("signin")
+routes.get("/profile",async(req,res)=>{
+    res.render("profile", { user: req.user });
+
 })
+routes.get("/logout",async(req,res)=>{
+    res.clearCookie("token").redirect("/")
+
+})
+routes.get("/",async(req,res)=>{
+    res.render("index", { user: req.user });
+
+})
+
 routes.post("/signup",createAcount)
-module.exports = routes
+routes.post("/signin",checkUser)
+module.exports = routes 

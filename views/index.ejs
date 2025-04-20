@@ -1,0 +1,73 @@
+
+            <%- include('./partials/header') %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<!-- Google Font: Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        font-family: futura, sans-serif;
+    }
+</style>
+<% if (locals.error) { %>
+    <div class="fixed top-5 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-3 z-50 animate-bounce-in  alert-message">
+        <i class="fas fa-exclamation-circle text-white text-xl"></i>
+        <span class="text-sm md:text-base font-medium"><%= error %></span>
+    </div>
+<% } %>
+
+<div class="w-full min-h-screen flex flex-col md:flex-row">
+    <!-- Signup Section -->
+    <div class="w-full md:w-1/2 min-h-screen bg-gradient-to-br from-blue-100 to-blue-300 flex items-center justify-center p-6 md:p-16">
+        <div class="w-full max-w-md bg-white shadow-xl rounded-2xl p-8 md:p-10">
+            <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2" style="font-family: futura;">Welcome to <span class="text-blue-500" style="font-family: futura;">Scatch</span></h3>
+            <h4 class="text-lg md:text-xl text-gray-600 mb-6" style="font-family: Teachers;">Create your account</h4>
+            <form autocomplete="off" action="/signup" method="post" style="font-family: Poppins Medium ;">
+                <div class="relative mb-4">
+                    <i class="fa fa-user absolute left-3 top-3 text-gray-400"></i>
+                    <input class="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 bg-zinc-100 focus:outline-blue-400" type="text" name="name" placeholder="Full Name" required>
+                </div>
+                <div class="relative mb-4">
+                    <i class="fa fa-envelope absolute left-3 top-3 text-gray-400"></i>
+                    <input class="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 bg-zinc-100 focus:outline-blue-400" type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="relative mb-4">
+                    <i class="fa fa-lock absolute left-3 top-3 text-gray-400"></i>
+                    <input class="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 bg-zinc-100 focus:outline-blue-400" type="password" name="password" placeholder="Password" required>
+                </div>
+                <button class="w-full py-3 mt-3 rounded-full bg-blue-500 text-white hover:bg-blue-600 transition-all duration-300" type="submit">Create My Account</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Login Section -->
+    <div class="w-full md:w-1/2 min-h-screen bg-gradient-to-tr from-white to-zinc-100 flex items-center justify-center p-6 md:p-16">
+        <div class="w-full max-w-md bg-white shadow-xl rounded-2xl p-8 md:p-10">
+            <h4 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6" style="font-family: futura  ;">Login to your account</h4>
+            <form autocomplete="off" action="/signin" method="post" style="font-family: Poppins Medium ;">
+                <div class="relative mb-4">
+                    <i class="fa fa-envelope absolute left-3 top-3 text-gray-400"></i>
+                    <input class="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 bg-zinc-100 focus:outline-blue-400" type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="relative mb-4">
+                    <i class="fa fa-lock absolute left-3 top-3 text-gray-400"></i>
+                    <input class="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 bg-zinc-100 focus:outline-blue-400" type="password" name="password" placeholder="Password" required>
+                </div>
+                <button class="w-full py-3 mt-5 rounded-full bg-blue-500 text-white hover:bg-blue-600 transition-all duration-300" type="submit">Login</button>
+                <a href="/ownerlogin" class="mt-5 ml-[200px] block text-blue-600 hover:underline">
+                    Login as Owner
+                </a>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('./partials/footer') %>
+<script>
+    setTimeout(() => {
+      const alert = document.querySelector('.alert-message');
+      if(alert) alert.remove();
+    }, 3000);
+  </script>
+  
