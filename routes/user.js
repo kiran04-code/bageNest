@@ -3,6 +3,10 @@ const routes = express.Router()
 const { createAcount ,checkUser} = require("../controller/user")
 
 routes.get("/",async(req,res)=>{
+    res.render("home", { user: req.user });
+
+})
+routes.get("/register",async(req,res)=>{
     res.render("index", { user: req.user });
 
 })

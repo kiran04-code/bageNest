@@ -2,12 +2,13 @@ const express = require("express")
 const routes = express.Router()
 const upload = require("../config/multer-config")
 const productmodel = require("../model/product-model")
-const {ownerCreate,createproduct} = require("../controller/user")
+const {ownerCreate,createproduct,ownerchck} = require("../controller/user")
 // owner 
 routes.get("/ownerlogin",(req,res)=>{
     res.render("owner-login")
 })
 routes.post("/ownercreate",ownerCreate)
+routes.post("/owenrchek",ownerchck)
 // owner product
 routes.get("/creteproduct",(req,res)=>{
     res.render("createproducts")

@@ -19,7 +19,7 @@ async function checkUser(req,res){
    try {
     const {email,password} = req.body
   const token =  await user.matchPassToken(email,password)
-  res.cookie("token", token).redirect("/shop")
+  res.cookie("token", token).redirect("/")
    } catch (error) {
      res.render("index",{user: req.user,error:"Invalid Credetial"})
    }
@@ -39,7 +39,11 @@ async function ownerCreate(req,res){
      res.redirect("/admin")
 }
 }
-
+async function ownerchck(req,res){
+  const {email,password} = req.body
+   await  owner.findOne({email,password})
+  res.redirect("/admin")
+}
 // creat the product for user!
 async function createproduct(req,res) {
   const {name,price,discount,bgcolor,panelcolor,textcolor }  = req.body
@@ -59,5 +63,6 @@ module.exports = {
     createAcount,
     ownerCreate,
     checkUser,
-    createproduct
+    createproduct,
+    ownerchck
 }

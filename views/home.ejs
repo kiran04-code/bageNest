@@ -1,0 +1,76 @@
+<%- include('./partials/header') %>
+
+<!-- Top Navbar -->
+<header class="bg-white shadow-md fixed top-0 left-0 w-full z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-indigo-600">BagNest</h1>
+    <nav class="hidden md:flex gap-8 text-gray-700 font-medium">
+      <a href="/" class="hover:text-indigo-500 transition">🏠 Home</a>
+      <a href="/register" class="hover:text-indigo-500 transition">📝 Register</a>
+      <% if (locals.user) { %>
+        <a href="/shop" class="hover:text-indigo-500 transition">🛍️ Shop</a>
+        <a href="/profile" class="hover:text-indigo-500 transition">👤 Profile</a>
+      <% } %>
+      <a href="/cart" class="hover:text-indigo-500 transition">👜 Cart</a>
+      <a href="/contact" class="hover:text-indigo-500 transition">📞 Contact</a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button id="menu-btn" class="md:hidden text-2xl text-gray-700">
+      ☰
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden hidden flex-col gap-4 px-6 pb-4 text-gray-700 font-medium">
+    <a href="/" class="hover:text-indigo-500 transition">🏠 Home</a>
+    <a href="/register" class="hover:text-indigo-500 transition">📝 Register</a>
+ 
+    <!-- <a href="/cart" class="hover:text-indigo-500 transition">👜 Cart</a>
+    <a href="/contact" class="hover:text-indigo-500 transition">📞 Contact</a> -->
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="pt-28 px-10 py-20 bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
+  <h1 class="text-5xl font-bold mb-6">Welcome to <span class="text-yellow-300">BagNest</span></h1>
+  <p class="text-lg max-w-xl mb-6">Discover high-quality, stylish bags for every adventure. Shop smart. Shop BagNest.</p>
+  <a href="/shop" class="bg-yellow-300 text-indigo-900 px-6 py-3 rounded-full font-semibold shadow hover:bg-yellow-400 transition">
+    🛍️ Explore Products
+  </a>
+</section>
+
+<!-- Features Section -->
+<section class="py-16 px-10 bg-gray-50">
+  <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">Why Shop With Us?</h3>
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+      <h4 class="text-xl font-semibold mb-2">🧵 Stylish Design</h4>
+      <p class="text-gray-600">Trendy collections designed for modern lifestyles.</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+      <h4 class="text-xl font-semibold mb-2">🚚 Quick Delivery</h4>
+      <p class="text-gray-600">Fast & reliable shipping across the country.</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+      <h4 class="text-xl font-semibold mb-2">🔒 Secure Payments</h4>
+      <p class="text-gray-600">Shop with confidence using our secure platform.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-indigo-600 text-white text-center py-6">
+  <p>&copy; <%= new Date().getFullYear() %> BagNest. All rights reserved.</p>
+</footer>
+
+<script>
+  // Toggle mobile menu
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
+
+<%- include('./partials/footer') %>
